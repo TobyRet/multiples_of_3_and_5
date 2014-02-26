@@ -33,16 +33,27 @@
 #  v1 + v2
 #end
 
+#  REFACTORING PART 1
+#def totaliser(max)
+#  list = []
+#  filtered_list = []
+#  for num in 1..max 
+#    list << num
+#  end
+#  list.each do |i| 
+#    filtered_list << i if (i % 3 == 0 || i % 5 == 0)
+#  end
+#  filtered_list.inject(0) {|sum, value| sum + value}
+#end
+
+# REFACTORING PART 2
+
 def totaliser(max)
-  list = []
-  filtered_list = []
+  multiples_three_and_five =[]
   for num in 1..max 
-    list << num
+    multiples_three_and_five << num if (num % 3 == 0 || num % 5 == 0)
   end
-  list.each do |i| 
-    filtered_list << i if (i % 3 == 0 || i % 5 == 0)
-  end
-  filtered_list.inject(0) {|sum, value| sum + value}
+  multiples_three_and_five.inject(0) {|sum, value| sum + value}
 end
 
 puts totaliser(1000)
